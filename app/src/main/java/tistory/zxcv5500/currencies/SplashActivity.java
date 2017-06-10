@@ -56,6 +56,7 @@ public class SplashActivity extends Activity {
 				mainIntent.putExtra(KEY_ARRAYLIST, mCurrencies);
 				startActivity(mainIntent);
 				finish();
+
 			} catch (JSONException e) {
 				Toast.makeText(SplashActivity.this, "There's Been a JSON exception: " + e.getMessage(), Toast.LENGTH_LONG).show();
 				e.printStackTrace();
