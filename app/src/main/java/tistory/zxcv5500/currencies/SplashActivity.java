@@ -16,6 +16,7 @@ import java.util.Iterator;
 public class SplashActivity extends Activity {
 	// 우리 앱에서 사용되는 통화 코드를 가져올 url
 	public static final String URL_CODES = "http://openexchangerates.org/api/currencies.json";
+	public static final String KEY_ARRAYLIST = "key_arraylist";
 	// 가져온 통화 코드를 저장하고 MainActivity에 전달할 ArrayList
 	private ArrayList<String> mCurrencies;
 
@@ -52,7 +53,7 @@ public class SplashActivity extends Activity {
 				}
 
 				Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
-				mainIntent.putExtra("key_arraylist", mCurrencies);
+				mainIntent.putExtra(KEY_ARRAYLIST, mCurrencies);
 				startActivity(mainIntent);
 				finish();
 			} catch (JSONException e) {
