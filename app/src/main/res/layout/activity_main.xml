@@ -18,10 +18,8 @@
 		>
 
 		<TextView
-			android:layout_weight="30"
 			android:text="Foreign Currency"
-			android:textColor="@color/turquoise"
-			style="@style/label"
+			style="@style/label.curr"
 			/>
 
 		<Spinner
@@ -92,10 +90,8 @@
 		>
 
 		<TextView
-			android:layout_weight="30"
 			android:text="Home Currency"
-		    android:textColor="@color/turquoise"
-			style="@style/label"
+			style="@style/label.curr"
 			/>
 
 		<Spinner

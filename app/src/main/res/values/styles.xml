@@ -16,4 +16,9 @@
 		<item name="android:gravity">bottom</item>
 	</style>
 
+	<style name="label.curr">
+		<item name="android:layout_weight">30</item>
+		<item name="android:textColor">@color/turquoise</item>
+	</style>
+
 </resources>
