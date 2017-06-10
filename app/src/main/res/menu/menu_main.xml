@@ -6,7 +6,7 @@
     tools:context=".MainActivity"
 	>
 	<item
-		android:id="mnu_codes"
+		android:id="@+id/mnu_codes"
 	    android:orderInCategory="100"
 	    app:showAsAction="never"
 	    android:title="search active codes"
