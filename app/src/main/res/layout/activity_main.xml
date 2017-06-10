@@ -18,14 +18,10 @@
 		>
 
 		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="0dp"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="10dp"
 			android:layout_weight="30"
-			android:gravity="bottom"
 			android:text="Foreign Currency"
 			android:textColor="@color/turquoise"
+			style="@style/label"
 			/>
 
 		<Spinner
@@ -39,15 +35,11 @@
 			/>
 
 		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="0dp"
-			android:layout_marginLeft="10dp"
-			android:layout_marginRight="10dp"
 			android:layout_weight="15"
-			android:gravity="bottom"
 			android:text="Enter foreign currency amount here:"
 			android:textColor="@color/grey_med"
 			android:textSize="12sp"
+			style="@style/label"
 			/>
 
 
@@ -100,14 +92,10 @@
 		>
 
 		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="0dp"
-		    android:layout_marginLeft="10dp"
-		    android:layout_marginRight="10dp"
-		    android:layout_weight="30"
-		    android:gravity="bottom"
-		    android:text="Home Currency"
+			android:layout_weight="30"
+			android:text="Home Currency"
 		    android:textColor="@color/turquoise"
+			style="@style/label"
 			/>
 
 		<Spinner
@@ -120,15 +108,11 @@
 			/>
 
 		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="0dp"
-			android:layout_marginLeft="10dp"
-		    android:layout_marginRight="10dp"
-		    android:layout_weight="15"
-		    android:gravity="bottom"
-		    android:text="Calculated result in home crrency:"
+			android:layout_weight="15"
+			android:text="Calculated result in home crrency:"
 		    android:textColor="@color/grey_med"
 		    android:textSize="12sp"
+			style="@style/label"
 			/>
 
 	</LinearLayout>
