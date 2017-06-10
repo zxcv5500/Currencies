@@ -1,5 +1,10 @@
 package tistory.zxcv5500.currencies;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -36,6 +41,43 @@ public class MainActivity extends AppCompatActivity {
 		mForSpinner = (Spinner) findViewById(R.id.spn_for);
 		mHomSpinner = (Spinner) findViewById(R.id.spn_hom);
 	}
+
+	/**
+	 * 기기의 네트워크 접속 상태를 체크하는 기능
+	 * @return
+	 */
+	public boolean isOnline() {
+		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+		if (networkInfo != null && networkInfo.isConnectedOrConnecting()) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * uri문자열을 받아서 해당 문자열을 주소로 가지는 웹브라우저를 띄운다
+	 * @param strUri
+	 */
+	private void launchBrowser(String strUri) {
+		if (isOnline()) {
+			Uri uri = Uri.parse(strUri);
+			// 암시적(implicit) 인텐트를 호출한다
+			Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+			startActivity(intent);
+		}
+	}
+
+	private void invertCurrencies() {
+		int nFor = mForSpinner.getSelectedItemPosition();
+		int nHom = mHomSpinner.getSelectedItemPosition();
+
+		mForSpinner.setSelection(nHom);
+		mHomSpinner.setSelection(nFor);
+
+		mConvertedTextView.setText("");
+	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
