@@ -33,11 +33,8 @@
 			/>
 
 		<TextView
-			android:layout_weight="15"
 			android:text="Enter foreign currency amount here:"
-			android:textColor="@color/grey_med"
-			android:textSize="12sp"
-			style="@style/label"
+			style="@style/label.desc"
 			/>
 
 
@@ -104,11 +101,8 @@
 			/>
 
 		<TextView
-			android:layout_weight="15"
 			android:text="Calculated result in home crrency:"
-		    android:textColor="@color/grey_med"
-		    android:textSize="12sp"
-			style="@style/label"
+			style="@style/label.desc"
 			/>
 
 	</LinearLayout>

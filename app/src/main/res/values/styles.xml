@@ -21,4 +21,10 @@
 		<item name="android:textColor">@color/turquoise</item>
 	</style>
 
+	<style name="label.desc">
+		<item name="android:layout_weight">15</item>
+		<item name="android:textColor">@color/grey_med</item>
+		<item name="android:textSize">12sp</item>
+	</style>
+
 </resources>
