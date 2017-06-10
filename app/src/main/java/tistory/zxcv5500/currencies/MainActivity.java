@@ -92,11 +92,11 @@ public class MainActivity extends AppCompatActivity {
 		int id = item.getItemId();
 		switch (id) {
 			case R.id.mnu_invert:
-
+				invertCurrencies();
 			    break;
 
 			case R.id.mnu_codes:
-
+				launchBrowser(SplashActivity.URL_CODES);
 			    break;
 			case R.id.mnu_exit:
 			    finish();
