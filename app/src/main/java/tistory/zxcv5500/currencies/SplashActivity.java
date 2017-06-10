@@ -1,6 +1,7 @@
 package tistory.zxcv5500.currencies;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Window;
@@ -50,6 +51,9 @@ public class SplashActivity extends Activity {
 					mCurrencies.add(key + " | " + jsonObject.getString(key));
 				}
 
+				Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+				mainIntent.putExtra("key_arraylist", mCurrencies);
+				startActivity(mainIntent);
 				finish();
 			} catch (JSONException e) {
 				Toast.makeText(SplashActivity.this, "There's Been a JSON exception: " + e.getMessage(), Toast.LENGTH_LONG).show();
