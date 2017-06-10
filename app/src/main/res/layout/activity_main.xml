@@ -46,7 +46,7 @@
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
 	    android:layout_weight="20"
-	    android:background="#222"
+	    android:background="@color/grey_dark"
 		>
 
 		<EditText
@@ -77,7 +77,7 @@
 	    android:layout_marginRight="10dp"
 	    android:layout_weight="10"
 	    android:text="Calculate"
-	    android:textColor="#AAA"
+	    android:textColor="@color/grey_light"
 		/>
 	<LinearLayout
 		android:layout_width="match_parent"
@@ -113,7 +113,7 @@
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
 	    android:layout_weight="20"
-	    android:background="#222"
+	    android:background="@color/grey_dark"
 		>
 
 		<TextView
@@ -122,11 +122,12 @@
 			android:layout_gravity="center_vertical"
 		    android:layout_marginLeft="5dp"
 		    android:layout_marginRight="5dp"
-		    android:background="#333"
-		    android:gravity="center_vertical"
-		    android:textSize="30sp"
+			android:background="@color/grey_med_dark"
+			android:gravity="center_vertical"
+			android:textSize="30sp"
 		    android:typeface="normal"
 			/>
+
 	</LinearLayout>
 
 
