@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -40,6 +41,19 @@ public class MainActivity extends AppCompatActivity {
 		mCalcButton = (Button) findViewById(R.id.btn_calc);
 		mForSpinner = (Spinner) findViewById(R.id.spn_for);
 		mHomSpinner = (Spinner) findViewById(R.id.spn_hom);
+
+		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+				//컨택스트
+				this,
+				//뷰 : 화면에 나타나는 레이아웃
+				R.layout.spinner_close,
+				// 모델 : 통화 코드를 갖고 있는 String 배열
+				mCurrencies
+		);
+
+		arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		mHomSpinner.setAdapter(arrayAdapter);
+		mForSpinner.setAdapter(arrayAdapter);
 	}
 
 	/**
