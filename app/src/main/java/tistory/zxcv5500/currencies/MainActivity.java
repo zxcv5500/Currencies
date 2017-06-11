@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +20,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 	private Button mCalcButton;
 	private TextView mConvertedTextView;
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
 		arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		mHomSpinner.setAdapter(arrayAdapter);
 		mForSpinner.setAdapter(arrayAdapter);
+
+		mHomSpinner.setOnItemSelectedListener(this);
+		mForSpinner.setOnItemSelectedListener(this);
 	}
 
 	/**
@@ -119,5 +124,17 @@ public class MainActivity extends AppCompatActivity {
 		}
 
 		return true;
+	}
+
+	@Override
+	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+		// parent.getId() 결과를 확인하여 내환과 외환 중 어떤 스피너가 선택되었는지 판단한 후
+		// 그에 따른 처리를 하는 코드를 추가한다
+
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> parent) {
+
 	}
 }
