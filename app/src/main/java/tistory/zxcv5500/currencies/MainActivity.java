@@ -167,16 +167,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 			case R.id.spn_for:
 			    // 외환 스피너에서 처리할 일
+				PrefsMgr.setString(this, FOR, extractCodeFromCurrency((String) mForSpinner.getSelectedItem()));
 			    break;
 
 			case R.id.spn_hom:
 			    // 내환 스피너에서 처리할 일
+				PrefsMgr.setString(this, HOM, extractCodeFromCurrency((String) mHomSpinner.getSelectedItem()));
 			    break;
 
 			default:
 				break;
-
 		}
+		mConvertedTextView.setText("");
 
 	}
 
