@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	private Spinner mForSpinner, mHomSpinner;
 	private String[] mCurrencies;
 
+	public static final String FOR = "FOR_CURRENCY";
+	public static final String HOM = "HOM_CURRENCY";
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,6 +62,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 		mHomSpinner.setOnItemSelectedListener(this);
 		mForSpinner.setOnItemSelectedListener(this);
+
+		if (savedInstanceState == null
+				&& (PrefsMgr.getString(this, FOR) == null &&
+				PrefsMgr.getString(this, HOM) == null)) {
+
+			mForSpinner.setSelection(findPositionGivenCode("CNY", mCurrencies));
+			mHomSpinner.setSelection(findPositionGivenCode("USD", mCurrencies));
+
+			PrefsMgr.setString(this, FOR, "CNY");
+			PrefsMgr.setString(this, HOM, "USD");
+		} else {
+
+			mForSpinner.setSelection(findPositionGivenCode(PrefsMgr.getString(this, FOR), mCurrencies));
+			mForSpinner.setSelection(findPositionGivenCode(PrefsMgr.getString(this, HOM), mCurrencies));
+		}
+
 	}
 
 	/**
