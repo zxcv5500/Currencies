@@ -130,6 +130,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 		// parent.getId() 결과를 확인하여 내환과 외환 중 어떤 스피너가 선택되었는지 판단한 후
 		// 그에 따른 처리를 하는 코드를 추가한다
+		switch (parent.getId()) {
+
+			case R.id.spn_for:
+			    // 외환 스피너에서 처리할 일
+			    break;
+
+			case R.id.spn_hom:
+			    // 내환 스피너에서 처리할 일
+			    break;
+
+			default:
+				break;
+
+		}
 
 	}
 
