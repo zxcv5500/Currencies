@@ -78,6 +78,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 			mForSpinner.setSelection(findPositionGivenCode(PrefsMgr.getString(this, HOM), mCurrencies));
 		}
 
+		mCalcButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// 실행될 코드를 여기에 둔다
+			}
+		});
+
 	}
 
 	/**
