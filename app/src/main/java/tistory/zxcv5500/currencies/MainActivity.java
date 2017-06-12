@@ -54,6 +54,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	// 환율 데이터의 형식을 지정하는 상수
 	private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#,##0.00000");
 
+	private CurrencyTaskCallback mCurrencyTaskCallback;
+
+	public static interface CurrencyTaskCallback {
+		void executionDone();
+	}
+
+	public void setCurrencyTaskCallback(CurrencyTaskCallback currencyTaskCallback) {
+		this.mCurrencyTaskCallback = currencyTaskCallback;
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -294,6 +304,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 			}
 			mConvertedTextView.setText(DECIMAL_FORMAT.format(dCalculated) + " " + strHomCode);
 			progressDialog.dismiss();
+
+			// 테스트를 위한 코드
+			if (mCurrencyTaskCallback != null) {
+				mCurrencyTaskCallback.executionDone();
+			}
 		}
 
 		@Override
