@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 	public static final String URL_BASE = "https://openexchangerates.org/api/latest.json?app_id=";
 
 	// 환율 데이터의 형식을 지정하는 상수
-	private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.##0.00000");
+	private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#,##0.00000");
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
