@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 			@Override
 			public void onClick(View v) {
 				// 실행될 코드를 여기에 둔다
+				new CurrencyConverterTask().execute(URL_BASE + mKey);
 
 			}
 		});
