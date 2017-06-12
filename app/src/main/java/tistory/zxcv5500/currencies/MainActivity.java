@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Properties;
@@ -34,6 +35,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 	public static final String FOR = "FOR_CURRENCY";
 	public static final String HOM = "HOM_CURRENCY";
+
+	// 개발자 키를 저장한다
+	private String mKey;
+
+	// openexchangerates.org로부터 환율 JSON 객체를 가져오는데 사용할 상수
+	public static final String RATES = "rates";
+	public static final String URL_BASE = "https://openexchangerates.org/api/latest.json?app_id=";
+
+	// 환율 데이터의 형식을 지정하는 상수
+	private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#.##0.00000");
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
