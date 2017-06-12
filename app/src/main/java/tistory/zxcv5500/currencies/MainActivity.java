@@ -120,7 +120,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 			@Override
 			public void onClick(View v) {
 				// 실행될 코드를 여기에 둔다
-				new CurrencyConverterTask().execute(URL_BASE + mKey);
+				if (isNumberic(String.valueOf(mAmountEditText.getText()))) {
+					new CurrencyConverterTask().execute(URL_BASE + mKey);
+				} else {
+					Toast.makeText(MainActivity.this, "Not a numeberic value, try again", Toast.LENGTH_SHORT).show();
+				}
+
 
 			}
 		});
@@ -315,5 +320,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 		protected JSONObject doInBackground(String... params) {
 			return new JSONParser().getJSONFromUrl(params[0]);
 		}
+	}
+
+	public static boolean isNumberic(String str) {
+		try {
+			double dub = Double.parseDouble(str);
+		} catch (NumberFormatException nfe) {
+			return false;
+		}
+		return true;
 	}
 }
