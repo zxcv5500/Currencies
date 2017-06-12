@@ -1,10 +1,13 @@
 package tistory.zxcv5500.currencies;
 
+import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by sharpen on 2017. 6. 12..
@@ -26,6 +29,16 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 	public void setUp() throws Exception {
 		super.setUp();
 		// ** 테스트에 필요한 리소스에 연결하고 인텐트에 데이터(Bundle)객체에 전달하며 테스트할 액티비티와 그것의 UI 객체 참조를 얻는다
+
+
+		// 기본 통화 코드를 전달한다
+		ArrayList<String> bogusCurrencies = new ArrayList<>();
+		bogusCurrencies.add("USD|United States Dollar");
+		bogusCurrencies.add("EUR|Euro");
+		Intent intent = new Intent();
+		intent.putExtra(SplashActivity.KEY_ARRAYLIST, bogusCurrencies);
+		setActivityIntent(intent);
+
 
 		// 테스트할 액티비티 참조를 얻는다
 		mActivity = getActivity();
