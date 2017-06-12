@@ -12,6 +12,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * monkey 사용 커맨드
+ * adb shell -p tistory.zxcv5500.currencies -v 100
+ *
  * Created by sharpen on 2017. 6. 12..
  */
 
