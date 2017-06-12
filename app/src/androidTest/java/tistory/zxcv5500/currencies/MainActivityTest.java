@@ -8,6 +8,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sharpen on 2017. 6. 12..
@@ -57,4 +59,64 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 		super.tearDown();
 		// 테스트가 끝난 후 모든 리소스를 해제하는데 사용할 수 있다
 	}
+
+	public void testInteger() throws Throwable {
+		proxyCurrencyConvertTask("12");
+	}
+
+	public void testFloat() throws Throwable {
+		proxyCurrencyConvertTask("12.3");
+	}
+
+	public void proxyCurrencyConvertTask (final String str) throws Throwable {
+
+		final CountDownLatch latch = new CountDownLatch(1);
+
+		mActivity.setCurrencyTaskCallback(new MainActivity.CurrencyTaskCallback() {
+			@Override
+			public void executionDone() {
+				latch.countDown();
+				assertEquals(convertToDouble(mConvertedTextView.getText().toString().substring(0, 5)), convertToDouble(str));
+			}
+		});
+
+		runTestOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				mAmountEditText.setText(str);
+				mForSpinner.setSelection(0);
+				mHomSpinner.setSelection(0);
+				mCalcButton.performClick();
+			}
+		});
+
+		latch.await(30, TimeUnit.SECONDS);
+	}
+
+	private double convertToDouble(String str) throws NumberFormatException {
+		double dReturn = 0;
+		try {
+			dReturn = Double.parseDouble(str);
+		} catch (NumberFormatException e) {
+			throw e;
+		}
+		return dReturn;
+	}
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
